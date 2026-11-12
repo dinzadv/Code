@@ -1,0 +1,11 @@
+@echo off
+cd /d "%~dp0"
+set "PATH=%LOCALAPPDATA%\Microsoft\dotnet;%PATH%"
+where dotnet >nul 2>nul
+if errorlevel 1 (
+  echo No se encontro dotnet. Instala el SDK de .NET 10 primero.
+  pause
+  exit /b
+)
+dotnet run -c Release
+pause
